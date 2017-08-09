@@ -14,7 +14,65 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d"
         Title="MainWindow" Height="550" Width="1000">
-    <Grid>
+    <Grid HorizontalAlignment="Left" Width="992">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <!-- Header-->
+        <materialDesign:ColorZone Mode="PrimaryDark" Grid.Row="0" Height="40"
+                                  Padding="5 0" materialDesign:ShadowAssist.ShadowDepth="Depth2">
+            <Grid Panel.ZIndex="1000">
+                <ToggleButton Name="DrawerButton"
+                              Style="{DynamicResource MaterialDesignHamburgerToggleButton}" 
+                              HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}"
+                           HorizontalAlignment="Center" VerticalAlignment="Center"
+                           Text="Blood Donors Client v0.01"/>
+                <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" HorizontalAlignment="Right">
+                    <StackPanel>
+                        <Button>Check servers availability</Button>
+                        <Separator/>
+                        <Button>About</Button>
+                        <Button>Exit</Button>
+                    </StackPanel>
+                </materialDesign:PopupBox>
+            </Grid>
+        </materialDesign:ColorZone>
+        <!-- /Header -->
 
+        <!-- Menu -->
+        <materialDesign:DrawerHost Grid.Row="0" Grid.RowSpan="2" IsLeftDrawerOpen="{Binding ElementName=DrawerButton,Path=IsChecked}">
+            <materialDesign:DrawerHost.LeftDrawerContent>
+                <StackPanel MinWidth="200" Margin="8">
+                    <Button Style="{DynamicResource MaterialDesignRaisedAccentButton}" Margin="8 8 8 16">StartPage</Button>
+                    <Expander Header="Donor">
+                        <StackPanel>
+                            <Button Style="{DynamicResource MaterialDesignFlatAccentButton}">Login</Button>
+                            <Button Style="{DynamicResource MaterialDesignFlatAccentButton}">Account</Button>
+                            <Button Style="{DynamicResource MaterialDesignFlatAccentButton}">Donations info</Button>
+                            <Button Style="{DynamicResource MaterialDesignFlatAccentButton}">Logout</Button>
+                        </StackPanel>
+                    </Expander>
+                    <Expander Header="Personnel">
+                        <StackPanel>
+                            <Button Style="{DynamicResource MaterialDesignFlatAccentButton}">Login</Button>
+                            <Button Style="{DynamicResource MaterialDesignFlatAccentButton}">Account</Button>
+                            <Button Style="{DynamicResource MaterialDesignFlatAccentButton}">Check date of donors last donation</Button>
+                            <Button Style="{DynamicResource MaterialDesignFlatAccentButton}">Register new donor</Button>
+                            <Button Style="{DynamicResource MaterialDesignFlatAccentButton}">Add new donation</Button>
+                            <Button Style="{DynamicResource MaterialDesignFlatAccentButton}">Get donors account</Button>
+                            <Button Style="{DynamicResource MaterialDesignFlatAccentButton}">All donations</Button>
+                            <Button Style="{DynamicResource MaterialDesignFlatAccentButton}">Logout</Button>
+                        </StackPanel>
+                    </Expander>
+                </StackPanel>
+            </materialDesign:DrawerHost.LeftDrawerContent>
+        </materialDesign:DrawerHost>
+        <!-- /Menu -->
+        
+        <!-- Content -->
+        <Frame Name="MainFrame" Grid.Row="1"/>
+        <!-- /Content -->
     </Grid>
 </Window>
