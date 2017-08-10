@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MaterialDesignThemes.Wpf;
 
 namespace BloodDonorsClientWPF
 {
@@ -23,6 +24,23 @@ namespace BloodDonorsClientWPF
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void ShowServersAvailability(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ShowAbout(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void ExitButtonClicked(object sender, RoutedEventArgs e)
+        {
+            var result = MessageBox.Show("Are you sure?", "Exit", MessageBoxButton.YesNo);
+            if (result == MessageBoxResult.Yes)
+                Close();
         }
     }
 }

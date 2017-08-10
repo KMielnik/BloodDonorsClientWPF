@@ -1,0 +1,197 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BloodDonorsClientLibrary</name>
+    </assembly>
+    <members>
+        <member name="M:BloodDonorsClientLibrary.Services.ClientFactory.#ctor(System.String)">
+            <summary>
+            Create factory which returns single instances of particuliar clients, you can use all of them at once.
+            </summary>
+            <param name="apiServerAdress">
+            Adress of API server which you would like to use
+            like "localhost","74.12.156.11","www.apiadrress.com"
+            </param>
+        </member>
+        <member name="M:BloodDonorsClientLibrary.Services.ClientFactory.#ctor">
+            <summary>
+            Create factory which returns single instances of particuliar clients, you can use all of them at once.
+            <para /> Server adress is taken from the serverAdress.config file.
+            <para /> If Empty, defaults to localhost.
+            </summary>
+        </member>
+        <member name="M:BloodDonorsClientLibrary.Services.ClientFactory.GetDonorClient">
+            <summary>
+            Get instance of DonorClient
+            </summary>
+        </member>
+        <member name="M:BloodDonorsClientLibrary.Services.ClientFactory.GetPersonnelClient">
+            <summary>
+            Get instance of PersonnelClient
+            </summary>
+        </member>
+        <member name="M:BloodDonorsClientLibrary.Services.ClientFactory.GetMiscellaneousClient">
+            <summary>
+            Get instance of MiscellaneousClient
+            </summary>
+        </member>
+        <member name="M:BloodDonorsClientLibrary.Services.DonorClient.LoginAsync(System.String,System.String)">
+            <summary>
+            Login into database.
+            </summary>
+            <param name="pesel">Donors pesel</param>
+            <param name="password">Donors password</param>
+            <exception cref="T:BloodDonorsClientLibrary.Exceptions.InvalidLoginCredentialsException">
+                Thrown when user couldn't be found/password was incorrect.
+            </exception>
+        </member>
+        <member name="M:BloodDonorsClientLibrary.Services.DonorClient.GetNameAsync">
+            <summary>
+            Returns name of logged donor.
+            </summary>
+            <exception cref="T:BloodDonorsClientLibrary.Exceptions.UserNotLoggedInException">
+                Thrown when user is not logged in.
+            </exception>
+        </member>
+        <member name="M:BloodDonorsClientLibrary.Services.DonorClient.HowMuchDonatedAsync">
+            <summary>
+            Returns amount of blood donated by logged donor in mililiters.
+            </summary>
+            <exception cref="T:BloodDonorsClientLibrary.Exceptions.UserNotLoggedInException">
+                Thrown when user is not logged in.
+            </exception>
+        </member>
+        <member name="M:BloodDonorsClientLibrary.Services.DonorClient.WhenAbleToDonateAgainAsync">
+            <summary>
+            Returns time when donor will be able to donate blood again.
+            </summary>
+            <exception cref="T:BloodDonorsClientLibrary.Exceptions.UserNotLoggedInException">
+                Thrown when user is not logged in.
+            </exception>
+        </member>
+        <member name="M:BloodDonorsClientLibrary.Services.DonorClient.GetAccountAsync">
+            <summary>
+            Returns whole donor account.
+            </summary>
+            <exception cref="T:BloodDonorsClientLibrary.Exceptions.UserNotLoggedInException">
+                Thrown when user is not logged in.
+            </exception>
+        </member>
+        <member name="E:BloodDonorsClientLibrary.Services.HttpClientWithAuthorization.OnLogout">
+            <summary>
+            Fires when user has been logged off (explicitly or after token expiration.
+            </summary>
+        </member>
+        <member name="E:BloodDonorsClientLibrary.Services.HttpClientWithAuthorization.OnLogin">
+            <summary>
+            Fires when user has been logged in.
+            </summary>
+        </member>
+        <member name="M:BloodDonorsClientLibrary.Services.MiscellaneousClient.GetHonoraryDonorsAsync">
+            <summary>
+            Return list of honorary(donated over 20 liters of blood) donors.
+            </summary>
+        </member>
+        <member name="M:BloodDonorsClientLibrary.Services.MiscellaneousClient.GetAllBloodDonatedVolumeAsync">
+            <summary>
+            Returns volume of all blood donated ever.
+            </summary>
+        </member>
+        <member name="M:BloodDonorsClientLibrary.Services.MiscellaneousClient.IsServerOnline">
+            <summary>
+            Checks if server is online by sending a request to it.
+            </summary>
+        </member>
+        <member name="M:BloodDonorsClientLibrary.Services.PersonnelClient.LoginAsync(System.String,System.String)">
+            <summary>
+            Login into database.
+            </summary>
+            <param name="pesel">Personnel pesel</param>
+            <param name="password">Personnel password</param>
+        </member>
+        <member name="M:BloodDonorsClientLibrary.Services.PersonnelClient.GetNameAsync">
+            <summary>
+            Returns name of logged personnel.
+            </summary>
+            <exception cref="T:BloodDonorsClientLibrary.Exceptions.UserNotLoggedInException">
+                Thrown when user is not logged in.
+            </exception>
+        </member>
+        <member name="M:BloodDonorsClientLibrary.Services.PersonnelClient.GetAllBloodTakenByPersonnelAsync">
+            <summary>
+            Returns all blood taken by logged in personnel.
+            </summary>
+            <exception cref="T:BloodDonorsClientLibrary.Exceptions.UserNotLoggedInException">
+                Thrown when user is not logged in.
+            </exception>
+        </member>
+        <member name="M:BloodDonorsClientLibrary.Services.PersonnelClient.LastDonationDateByDonorAsync(System.String)">
+            <summary>
+            Returns DateTime of last blood donation by donor with provided pesel.
+            </summary>
+            <param name="donorsPesel">Pesel of donor which info we want to get.</param>
+            <exception cref="T:BloodDonorsClientLibrary.Exceptions.UserNotFoundException">When donor with that pesel couldn't be found.</exception>
+            <exception cref="T:System.Exception">When http code wasn't 2xx or 404</exception>
+            <exception cref="T:BloodDonorsClientLibrary.Exceptions.UserNotLoggedInException">
+                Thrown when user is not logged in.
+            </exception>
+        </member>
+        <member name="M:BloodDonorsClientLibrary.Services.PersonnelClient.RegisterDonorAsync(System.String,System.String,BloodDonorsClientLibrary.Models.BloodType,System.String,System.String)">
+            <summary>
+            Registers new Donor
+            </summary>
+            <param name="pesel">Can't be already taken.</param>
+            <param name="name"></param>
+            <param name="bloodType"></param>
+            <param name="mail"></param>
+            <param name="phone"></param>
+            <exception cref="T:BloodDonorsClientLibrary.Exceptions.ResouceAlreadyExistsException">
+                Thrown when donor with that pesel already exists.
+            </exception>
+            <exception cref="T:BloodDonorsClientLibrary.Exceptions.UserNotLoggedInException">
+                Thrown when user is not logged in.
+            </exception>
+        </member>
+        <member name="M:BloodDonorsClientLibrary.Services.PersonnelClient.AddDonationAsync(System.DateTime,System.Int32,BloodDonorsClientLibrary.Models.BloodType,System.String)">
+            <summary>
+            Add new blood donation
+            </summary>
+            <param name="dateOfDonation">When was the blood donated</param>
+            <param name="volume">Volume of donated blood in mililiters</param>
+            <param name="bloodType"></param>
+            <param name="donorPesel"></param>
+            <exception cref="T:BloodDonorsClientLibrary.Exceptions.UserNotLoggedInException">
+                Thrown when user is not logged in.
+            </exception>
+            <exception cref="T:BloodDonorsClientLibrary.Exceptions.UserNotFoundException">
+                Thrown when donor with provided pesel has not been found.
+            </exception>
+        </member>
+        <member name="M:BloodDonorsClientLibrary.Services.PersonnelClient.GetDonorByPeselAsync(System.String)">
+            <summary>
+            Get Donor with provided pesel
+            </summary>
+            <param name="pesel"></param>
+            <exception cref="T:BloodDonorsClientLibrary.Exceptions.UserNotFoundException">Thrown if user with that pesel was not found.</exception>
+            <exception cref="T:BloodDonorsClientLibrary.Exceptions.UserNotLoggedInException">
+                Thrown when user is not logged in.
+            </exception>
+        </member>
+        <member name="M:BloodDonorsClientLibrary.Services.PersonnelClient.GetAllBloodAsync">
+            <summary>
+            Returns all blood donations
+            </summary>
+            <exception cref="T:BloodDonorsClientLibrary.Exceptions.UserNotLoggedInException">
+                Thrown when user is not logged in.
+            </exception>
+        </member>
+        <member name="M:BloodDonorsClientLibrary.Services.PersonnelClient.GetAccountAsync">
+            <summary>
+            Returns whole personnel account.
+            </summary>
+            <exception cref="T:BloodDonorsClientLibrary.Exceptions.UserNotLoggedInException">
+                Thrown when user is not logged in.
+            </exception>
+        </member>
+    </members>
+</doc>
