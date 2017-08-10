@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BloodDonorsClientLibrary.Services;
 using MaterialDesignThemes.Wpf;
 
 namespace BloodDonorsClientWPF
@@ -21,9 +22,13 @@ namespace BloodDonorsClientWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        private ClientFactory clientFactory;
+
         public MainWindow()
         {
             InitializeComponent();
+            clientFactory = new ClientFactory();
+            MainFrame.Content = new MainPage(clientFactory);
         }
 
         private void ShowServersAvailability(object sender, RoutedEventArgs e)

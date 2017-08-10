@@ -21,11 +21,11 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <materialDesign:DrawerHost Grid.Row="0" Grid.RowSpan="2" IsLeftDrawerOpen="{Binding ElementName=DrawerButton,Path=IsChecked}">
+        <materialDesign:DrawerHost Panel.ZIndex="10" Grid.Row="0" Grid.RowSpan="2" IsLeftDrawerOpen="{Binding ElementName=DrawerButton,Path=IsChecked}">
             <!-- Header-->
             <materialDesign:ColorZone Mode="PrimaryDark" Grid.Row="0" Height="40"
                                       Padding="5 0" materialDesign:ShadowAssist.ShadowDepth="Depth2">
-                <Grid Panel.ZIndex="1000">
+                <Grid>
                     <ToggleButton Name="DrawerButton"
                                   Style="{DynamicResource MaterialDesignHamburgerToggleButton}" 
                                   HorizontalAlignment="Left" VerticalAlignment="Center"/>
