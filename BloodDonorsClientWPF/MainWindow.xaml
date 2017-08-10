@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BloodDonorsClientWPF"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
@@ -26,7 +27,7 @@
 
         <materialDesign:DrawerHost Panel.ZIndex="10" Grid.Row="0" Grid.RowSpan="2" IsLeftDrawerOpen="{Binding ElementName=DrawerButton,Path=IsChecked}">
             <!-- Header-->
-            <materialDesign:ColorZone MouseDown="UIElement_OnMouseDown" Mode="PrimaryDark" Grid.Row="0" Height="40"
+            <materialDesign:ColorZone MouseDown="HeaderOnMouseDown" Mode="PrimaryDark" Grid.Row="0" Height="40"
                                       Padding="5 0" materialDesign:ShadowAssist.ShadowDepth="Depth2">
                 <Grid>
                     <ToggleButton Name="DrawerButton"
@@ -78,5 +79,68 @@
         <!-- Content -->
         <Frame Name="MainFrame" Grid.Row="1"/>
         <!-- /Content -->
+
+        <!-- DialogBoxes -->
+        <materialDesign:DialogHost DialogClosing="ExitDialog_OnDialogClosing"
+            Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+            Name="DialogHostExit" CloseOnClickAway="True" CloseOnClickAwayParameter="False">
+            <materialDesign:DialogHost.DialogContent>
+                <StackPanel Margin="16">
+                    <TextBlock>Are you sure you want to exit?</TextBlock>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button Style="{StaticResource MaterialDesignFlatButton}"
+                                IsDefault="True"
+                                Margin="0 8 0 0"
+                                Command="materialDesign:DialogHost.CloseDialogCommand">
+                            <Button.CommandParameter>
+                                <system:Boolean>True</system:Boolean>
+                            </Button.CommandParameter>
+                            ACCEPT
+                        </Button>
+                        <Button Style="{StaticResource MaterialDesignFlatButton}"
+                                Margin="0 8 0 0"
+                                Command="materialDesign:DialogHost.CloseDialogCommand">
+                            <Button.CommandParameter>
+                                <system:Boolean>False</system:Boolean>
+                            </Button.CommandParameter>
+                            CANCEL
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+            </materialDesign:DialogHost.DialogContent>
+        </materialDesign:DialogHost>
+
+        <materialDesign:DialogHost Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                                   Name="DialogHostAbout" CloseOnClickAway="True">
+            <materialDesign:DialogHost.DialogContent>
+                <StackPanel Margin="16">
+                    <TextBlock>Created by Kamil Mielnik</TextBlock>
+                    <Button Style="{StaticResource MaterialDesignFlatButton}"
+                            Margin="0 8 0 0" Content="OK"  HorizontalAlignment="Right"
+                            Command="materialDesign:DialogHost.CloseDialogCommand"/>
+                </StackPanel>
+            </materialDesign:DialogHost.DialogContent>
+        </materialDesign:DialogHost>
+
+        <materialDesign:DialogHost DialogOpened="IsServerOnlineDialog_OnDialogOpening"
+            Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                                   Name="DialogHostIsServerOnline" CloseOnClickAway="True">
+            <materialDesign:DialogHost.DialogContent>
+                <StackPanel Margin="16">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Text="Server status:" />
+                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Name="ServerStatus"/>
+                        <ProgressBar Style="{StaticResource MaterialDesignCircularProgressBar}" VerticalAlignment="Center" IsIndeterminate="True" Margin="8" Name="ServerStatusProgressBar"/>
+                    </StackPanel>
+                    
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button Style="{StaticResource MaterialDesignFlatButton}"
+                                Margin="0 8 0 0" Content="OK" 
+                                Command="materialDesign:DialogHost.CloseDialogCommand"/>
+                    </StackPanel>
+                </StackPanel>
+            </materialDesign:DialogHost.DialogContent>
+        </materialDesign:DialogHost>
+        <!-- /DialogBoxes -->
     </Grid>
 </Window>
