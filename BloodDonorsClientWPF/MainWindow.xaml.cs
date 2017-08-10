@@ -22,7 +22,7 @@ namespace BloodDonorsClientWPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        private ClientFactory clientFactory;
+        private readonly ClientFactory clientFactory;
 
         public MainWindow()
         {
@@ -42,10 +42,13 @@ namespace BloodDonorsClientWPF
         }
 
         private void ExitButtonClicked(object sender, RoutedEventArgs e)
+            => Close();
+        
+
+        private void UIElement_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
-            var result = MessageBox.Show("Are you sure?", "Exit", MessageBoxButton.YesNo);
-            if (result == MessageBoxResult.Yes)
-                Close();
+            if(e.LeftButton == MouseButtonState.Pressed)
+                this.DragMove();
         }
     }
 }
