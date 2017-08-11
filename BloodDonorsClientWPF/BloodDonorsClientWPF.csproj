@@ -139,8 +139,57 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="PersonnelPages\PersonnelAccountPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PersonnelPages\PersonnelAddNewDonationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PersonnelPages\PersonnelDonationsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PersonnelPages\PersonnelGetDonorsInfoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PersonnelPages\PersonnelLoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PersonnelPages\PersonnelLogoutPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PersonnelPages\RegisterNewDonorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PersonnelPages\PersonnelAccountPage.xaml.cs">
+      <DependentUpon>PersonnelAccountPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonnelPages\PersonnelAddNewDonationPage.xaml.cs">
+      <DependentUpon>PersonnelAddNewDonationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonnelPages\PersonnelDonationsPage.xaml.cs">
+      <DependentUpon>PersonnelDonationsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonnelPages\PersonnelGetDonorsInfoPage.xaml.cs">
+      <DependentUpon>PersonnelGetDonorsInfoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonnelPages\PersonnelLoginPage.xaml.cs">
+      <DependentUpon>PersonnelLoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonnelPages\PersonnelLogoutPage.xaml.cs">
+      <DependentUpon>PersonnelLogoutPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonnelPages\RegisterNewDonorPage.xaml.cs">
+      <DependentUpon>RegisterNewDonorPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -168,9 +217,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="PersonnelPages\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Resources\BloodDrop.jpg" />
   </ItemGroup>
