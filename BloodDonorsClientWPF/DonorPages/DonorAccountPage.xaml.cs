@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BloodDonorsClientLibrary.Services;
 
 namespace BloodDonorsClientWPF.DonorPages
 {
@@ -20,9 +21,12 @@ namespace BloodDonorsClientWPF.DonorPages
     /// </summary>
     public partial class DonorAccountPage : Page
     {
-        public DonorAccountPage()
+        private readonly DonorClient donorClient;
+
+        public DonorAccountPage(ClientFactory clientFactory)
         {
             InitializeComponent();
+            donorClient = clientFactory.GetDonorClient();
         }
     }
 }

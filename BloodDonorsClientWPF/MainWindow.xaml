@@ -66,21 +66,30 @@
                         <StackPanel>
                             <Button Style="{StaticResource MaterialDesignFlatAccentButton}" 
                                     Click="ShowDonorLoginPage" Content="Login"/>
-                            <Button Style="{StaticResource MaterialDesignFlatAccentButton}" Content="Account"/>
-                            <Button Style="{StaticResource MaterialDesignFlatAccentButton}" Content="Donations"/>
-                            <Button Style="{StaticResource MaterialDesignFlatAccentButton}" Content="Logout"/>
+                            <Button Style="{StaticResource MaterialDesignFlatAccentButton}" 
+                                    Click="ShowDonorAccountPage" Content="Account"/>
+                            <Button Style="{StaticResource MaterialDesignFlatAccentButton}"
+                                    Click="ShowDonorDonationPage" Content="Donations"/>
+                            <Button Style="{StaticResource MaterialDesignFlatAccentButton}" 
+                                    Click="ShowDonorLogoutPage" Content="Logout"/>
                         </StackPanel>
                     </Expander>
                     <Expander Header="Personnel">
                         <StackPanel>
-                            <Button Style="{StaticResource MaterialDesignFlatAccentButton}" Content="Login"/>
-                            <Button Style="{StaticResource MaterialDesignFlatAccentButton}" Content="Account"/>
-                            <Button Style="{StaticResource MaterialDesignFlatAccentButton}" Content="Check date of donors last donation"/>
-                            <Button Style="{StaticResource MaterialDesignFlatAccentButton}" Content="Register new donor"/>
-                            <Button Style="{StaticResource MaterialDesignFlatAccentButton}" Content="Add new donation"/>
-                            <Button Style="{StaticResource MaterialDesignFlatAccentButton}" Content="Get donors account"/>
-                            <Button Style="{StaticResource MaterialDesignFlatAccentButton}" Content="All donations"/>
-                            <Button Style="{StaticResource MaterialDesignFlatAccentButton}" Content="Logout"/>
+                            <Button Style="{StaticResource MaterialDesignFlatAccentButton}"
+                                    Click="ShowPersonnelLoginPage" Content="Login"/>
+                            <Button Style="{StaticResource MaterialDesignFlatAccentButton}"
+                                    Click="ShowPersonnelAccountPage" Content="Account"/>
+                            <Button Style="{StaticResource MaterialDesignFlatAccentButton}"
+                                    Click="ShowRegisterNewDonorPage" Content="Register new donor"/>
+                            <Button Style="{StaticResource MaterialDesignFlatAccentButton}"
+                                    Click="ShowAddNewDonationPage" Content="Add new donation"/>
+                            <Button Style="{StaticResource MaterialDesignFlatAccentButton}"
+                                    Click="ShowPersonnelGetDonorAccountPage" Content="Get donors account"/>
+                            <Button Style="{StaticResource MaterialDesignFlatAccentButton}"
+                                    Click="ShowPersonnelDonationsPage" Content="Donations"/>
+                            <Button Style="{StaticResource MaterialDesignFlatAccentButton}"
+                                    Click="ShowPersonnelLogoutPage" Content="Logout"/>
                         </StackPanel>
                     </Expander>
                 </StackPanel>

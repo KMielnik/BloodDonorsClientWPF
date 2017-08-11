@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BloodDonorsClientLibrary.Services;
 using BloodDonorsClientWPF.DonorPages;
+using BloodDonorsClientWPF.PersonnelPages;
 using MaterialDesignThemes.Wpf;
 
 namespace BloodDonorsClientWPF
@@ -91,6 +92,56 @@ namespace BloodDonorsClientWPF
         private void ShowDonorLoginPage(object sender, RoutedEventArgs e)
         {
             MainFrame.Content = new DonorLoginPage(clientFactory);
+        }
+
+        private void ShowDonorAccountPage(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new DonorAccountPage(clientFactory);
+        }
+
+        private void ShowDonorDonationPage(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new DonorDonationsPage(clientFactory);
+        }
+
+        private void ShowDonorLogoutPage(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new DonorLogoutPage(clientFactory);
+        }
+
+        private void ShowPersonnelLoginPage(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new PersonnelLoginPage(clientFactory);
+        }
+
+        private void ShowPersonnelAccountPage(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new PersonnelAccountPage(clientFactory);
+        }
+
+        private void ShowRegisterNewDonorPage(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new RegisterNewDonorPage(clientFactory);
+        }
+
+        private void ShowAddNewDonationPage(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new PersonnelAddNewDonationPage(clientFactory);
+        }
+
+        private void ShowPersonnelGetDonorAccountPage(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new PersonnelGetDonorsInfoPage(clientFactory);
+        }
+
+        private void ShowPersonnelDonationsPage(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new PersonnelDonationsPage(clientFactory);
+        }
+
+        private void ShowPersonnelLogoutPage(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new PersonnelLogoutPage(clientFactory);
         }
     }
 }
