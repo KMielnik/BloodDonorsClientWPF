@@ -17,6 +17,18 @@
       Title="LoginPage">
 
     <Grid>
-        <materialDesign:Card Margin="10"></materialDesign:Card>
+        <materialDesign:Card HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="16" materialDesign:ShadowAssist.ShadowDepth="Depth4" Padding="16">
+            <StackPanel Orientation="Vertical" MinWidth="300" MinHeight="100">
+                <DockPanel Margin="0 10">
+                    <TextBlock Margin="0 0 3 0" VerticalAlignment="Center">Pesel:</TextBlock>
+                    <TextBox VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+                </DockPanel>
+                <DockPanel Margin="0 10">
+                    <TextBlock Margin="0 0 3 0" VerticalAlignment="Center">Password:</TextBlock>
+                    <PasswordBox  VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
+                </DockPanel>
+                <Button Content="Login"/>
+            </StackPanel>
+        </materialDesign:Card>
     </Grid>
 </Page>

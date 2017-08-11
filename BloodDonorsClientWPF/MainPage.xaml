@@ -57,7 +57,7 @@
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Row="0" Style="{DynamicResource MaterialDesignDisplay2TextBlock}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10" Text="Honorary donors:"  />
                 <DataGrid Grid.Row="1" Name="Grid" IsReadOnly="True" Margin="0" Width="Auto"
-                          ItemsSource="{Binding honoraryDonors}" DataContext="{Binding RelativeSource={RelativeSource AncestorType=Page}}" />
+                          ItemsSource="{Binding HonoraryDonors}" DataContext="{Binding RelativeSource={RelativeSource AncestorType=Page}}" />
             </Grid>
         </materialDesign:Card>
 

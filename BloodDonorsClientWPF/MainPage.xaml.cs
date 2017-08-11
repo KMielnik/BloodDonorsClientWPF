@@ -24,14 +24,14 @@ namespace BloodDonorsClientWPF
     public partial class MainPage : Page
     {
         private readonly MiscellaneousClient miscellaneousClient;
-        public ObservableCollection<DonorScore> honoraryDonors { get; set; }
+        public ObservableCollection<DonorScore> HonoraryDonors { get; set; }
 
         public MainPage(ClientFactory clientFactory)
         {
             InitializeComponent();
             miscellaneousClient = clientFactory.GetMiscellaneousClient();
 
-            honoraryDonors = new ObservableCollection<DonorScore>();
+            HonoraryDonors = new ObservableCollection<DonorScore>();
 
             this.Loaded += MainPage_Loaded;
         }
@@ -43,7 +43,7 @@ namespace BloodDonorsClientWPF
 
             IEnumerable<DonorScore> honoraryDonorsList = await miscellaneousClient.GetHonoraryDonorsAsync();
             foreach (var donorScore in honoraryDonorsList)
-                honoraryDonors.Add(donorScore);
+                HonoraryDonors.Add(donorScore);
         }
     }
 }

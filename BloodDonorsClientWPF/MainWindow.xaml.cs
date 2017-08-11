@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BloodDonorsClientLibrary.Services;
+using BloodDonorsClientWPF.DonorPages;
 using MaterialDesignThemes.Wpf;
 
 namespace BloodDonorsClientWPF
@@ -29,7 +30,7 @@ namespace BloodDonorsClientWPF
         {
             InitializeComponent();
             clientFactory = new ClientFactory();
-            MainFrame.Content = new MainPage(clientFactory);
+            MainFrame.Content = new LoginPage(clientFactory);
 
             miscellaneousClient = clientFactory.GetMiscellaneousClient();
         }
