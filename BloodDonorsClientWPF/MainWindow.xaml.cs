@@ -30,7 +30,7 @@ namespace BloodDonorsClientWPF
         {
             InitializeComponent();
             clientFactory = new ClientFactory();
-            MainFrame.Content = new LoginPage(clientFactory);
+            MainFrame.Content = new MainPage(clientFactory);
 
             miscellaneousClient = clientFactory.GetMiscellaneousClient();
         }
@@ -81,6 +81,16 @@ namespace BloodDonorsClientWPF
                 ServerStatus.Text = "OFFLINE";
                 ServerStatus.Foreground = Brushes.DarkRed;
             }
+        }
+
+        private void ShowMainPage(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new MainPage(clientFactory);
+        }
+
+        private void ShowDonorLoginPage(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new DonorLoginPage(clientFactory);
         }
     }
 }
