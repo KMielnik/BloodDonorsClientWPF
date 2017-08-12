@@ -15,8 +15,143 @@
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="1000"
       Title="DonorAccountPage">
-
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBlock.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.5*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <materialDesign:Card Grid.ColumnSpan="2"  Padding="8" Margin="5"
+                             HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Style="{StaticResource MaterialDesignDisplay1TextBlock}" Text="Welcome, "/>
+                <TextBlock Style="{StaticResource MaterialDesignDisplay1TextBlock}" Name="DonorNameTextBlockHeader"/>
+            </StackPanel>
+        </materialDesign:Card>
         
+        <materialDesign:Card Grid.Column="0" Grid.Row="1" Margin="20"
+                             HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <WrapPanel>
+                <materialDesign:Card Width="180" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="10">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25"></RowDefinition>
+                            <RowDefinition Height="30"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <materialDesign:ColorZone Grid.Row="0" Mode="Accent" 
+                                                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Text="Pesel:" />
+                        </materialDesign:ColorZone>
+                        <TextBlock Grid.Row="1" Style="{StaticResource MaterialDesignTitleTextBlock}" 
+                                   Name="PeselTextBlock" VerticalAlignment="Bottom" HorizontalAlignment="Right" />
+                    </Grid>
+                </materialDesign:Card>
+                <materialDesign:Card Width="180" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="10">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25"></RowDefinition>
+                            <RowDefinition Height="30"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <materialDesign:ColorZone Grid.Row="0" Mode="Accent" 
+                                                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Text="Phone:" />
+                        </materialDesign:ColorZone>
+                        <TextBlock Grid.Row="1" Style="{StaticResource MaterialDesignTitleTextBlock}" 
+                                   Name="PhoneTextBlock" VerticalAlignment="Bottom" HorizontalAlignment="Right" />
+                    </Grid>
+                </materialDesign:Card>
+                <materialDesign:Card Width="180" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="10">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25"></RowDefinition>
+                            <RowDefinition Height="30"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <materialDesign:ColorZone Grid.Row="0" Mode="Accent" 
+                                                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Text="Mail:" />
+                        </materialDesign:ColorZone>
+                        <TextBlock Grid.Row="1" Style="{StaticResource MaterialDesignTitleTextBlock}" 
+                                   Name="MailTextBlock" VerticalAlignment="Bottom" HorizontalAlignment="Right" />
+                    </Grid>
+                </materialDesign:Card>
+                <materialDesign:Card Width="180" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="10">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25"></RowDefinition>
+                            <RowDefinition Height="30"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <materialDesign:ColorZone Grid.Row="0" Mode="Accent" 
+                                                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Text="Blood Type:" />
+                        </materialDesign:ColorZone>
+                        <TextBlock Grid.Row="1" Style="{StaticResource MaterialDesignTitleTextBlock}" 
+                                   Name="BloodTypeTextBlock" VerticalAlignment="Bottom" HorizontalAlignment="Right" />
+                    </Grid>
+                </materialDesign:Card>
+            </WrapPanel>
+        </materialDesign:Card>
+
+        <Grid Grid.Column="1" Grid.Row="1" Margin="20"
+              HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.5*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <materialDesign:Card Grid.Row="0" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="2*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Margin="10" Text="You can donate again in:"
+                               HorizontalAlignment="Center" VerticalAlignment="Center" 
+                               Style="{StaticResource MaterialDesignHeadlineTextBlock}" />
+                    <TextBlock Grid.Row="1" Name="HowManyDaysToDonateAgain"
+                               HorizontalAlignment="Center" VerticalAlignment="Center"
+                               Style="{StaticResource MaterialDesignDisplay3TextBlock}"/>
+                    <DatePicker Grid.Row="1" Name="HowManyDaysToDonateAgainCalendar" 
+                                VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                                IsManipulationEnabled="False"  >
+                        <DatePicker.Resources>
+                            <Style TargetType="DatePickerTextBox">
+                                <Setter Property="IsReadOnly" Value="True"/>
+                            </Style>
+                        </DatePicker.Resources>
+                    </DatePicker>
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Grid.Row="1" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="1.3*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Margin="10" Text="You have helped us with:" 
+                               HorizontalAlignment="Center" VerticalAlignment="Center" 
+                               Style="{StaticResource MaterialDesignHeadlineTextBlock}" />
+                    <TextBlock Grid.Row="1" Margin="10" Name="AmountOfBloodDonatedTextBlock" Text=""
+                               HorizontalAlignment="Center" VerticalAlignment="Center" 
+                               Style="{StaticResource MaterialDesignDisplay1TextBlock}" />
+                    <TextBlock Grid.Row="2" Margin="10" Text="mililiters of blood" 
+                               HorizontalAlignment="Center" VerticalAlignment="Center"
+                               Style="{StaticResource MaterialDesignHeadlineTextBlock}" />
+                </Grid>
+            </materialDesign:Card>
+        </Grid>
+        
+
     </Grid>
 </Page>

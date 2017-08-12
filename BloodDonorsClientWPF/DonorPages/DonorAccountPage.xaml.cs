@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BloodDonorsClientLibrary.Services;
+using MaterialDesignThemes.Wpf;
 
 namespace BloodDonorsClientWPF.DonorPages
 {
@@ -27,6 +28,46 @@ namespace BloodDonorsClientWPF.DonorPages
         {
             InitializeComponent();
             donorClient = clientFactory.GetDonorClient();
+
+            Loaded += DonorAccountPage_Loaded;
+        }
+
+        private async void DonorAccountPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            await SetDonorNamerInHeader();
+            await SetAmountOfBloodDonated();
+            await SetHowManyDaysUntillCanDonateAgain();
+            await SetAccountData();
+        }
+
+        private async Task SetDonorNamerInHeader()
+        {
+            var donorName = await donorClient.GetNameAsync();
+            DonorNameTextBlockHeader.Text = donorName;
+        }
+
+        private async Task SetHowManyDaysUntillCanDonateAgain()
+        {
+            var whenAbleToDonateAgain = await donorClient.WhenAbleToDonateAgainAsync();
+            var howMuchTimeUntil = whenAbleToDonateAgain - DateTime.Now;
+            HowManyDaysToDonateAgain.Text = howMuchTimeUntil.Days.ToString() + " days";
+            HowManyDaysToDonateAgainCalendar.DisplayDate = whenAbleToDonateAgain;
+            HowManyDaysToDonateAgainCalendar.SelectedDate = whenAbleToDonateAgain;
+        }
+
+        private async Task SetAmountOfBloodDonated()
+        {
+            var amountOfBloodDonated = await donorClient.HowMuchDonatedAsync();
+            AmountOfBloodDonatedTextBlock.Text = amountOfBloodDonated.ToString("n0");
+        }
+
+        private async Task SetAccountData()
+        {
+            var donor = await donorClient.GetAccountAsync();
+            PeselTextBlock.Text = donor.Pesel;
+            PhoneTextBlock.Text = donor.Phone;
+            MailTextBlock.Text = donor.Mail;
+            BloodTypeTextBlock.Text = $"{donor.BloodType.AboType} Rh{donor.BloodType.RhType}";
         }
     }
 }
