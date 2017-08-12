@@ -99,15 +99,6 @@ namespace BloodDonorsClientWPF
             MainFrame.Content = new DonorAccountPage(clientFactory);
         }
 
-        private void ShowDonorDonationPage(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Content = new DonorDonationsPage(clientFactory);
-        }
-
-        private void ShowDonorLogoutPage(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Content = new DonorLogoutPage(clientFactory);
-        }
 
         private void ShowPersonnelLoginPage(object sender, RoutedEventArgs e)
         {
@@ -137,11 +128,6 @@ namespace BloodDonorsClientWPF
         private void ShowPersonnelDonationsPage(object sender, RoutedEventArgs e)
         {
             MainFrame.Content = new PersonnelDonationsPage(clientFactory);
-        }
-
-        private void ShowPersonnelLogoutPage(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Content = new PersonnelLogoutPage(clientFactory);
         }
     }
 }

@@ -68,10 +68,6 @@
                                     Click="ShowDonorLoginPage" Content="Login"/>
                             <Button Style="{StaticResource MaterialDesignFlatAccentButton}" 
                                     Click="ShowDonorAccountPage" Content="Account"/>
-                            <Button Style="{StaticResource MaterialDesignFlatAccentButton}"
-                                    Click="ShowDonorDonationPage" Content="Donations"/>
-                            <Button Style="{StaticResource MaterialDesignFlatAccentButton}" 
-                                    Click="ShowDonorLogoutPage" Content="Logout"/>
                         </StackPanel>
                     </Expander>
                     <Expander Header="Personnel">
@@ -88,8 +84,6 @@
                                     Click="ShowPersonnelGetDonorAccountPage" Content="Get donors account"/>
                             <Button Style="{StaticResource MaterialDesignFlatAccentButton}"
                                     Click="ShowPersonnelDonationsPage" Content="Donations"/>
-                            <Button Style="{StaticResource MaterialDesignFlatAccentButton}"
-                                    Click="ShowPersonnelLogoutPage" Content="Logout"/>
                         </StackPanel>
                     </Expander>
                 </StackPanel>

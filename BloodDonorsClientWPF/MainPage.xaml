@@ -15,6 +15,13 @@
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="1000"
       Title="MainPage">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBlock.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" MinWidth="350"/>
@@ -39,13 +46,13 @@
                     </Grid.RowDefinitions>
                     <TextBlock Grid.Row="0" Margin="10" Text="People have donated" 
                                HorizontalAlignment="Center" VerticalAlignment="Center" 
-                               Style="{DynamicResource MaterialDesignHeadlineTextBlock}" />
+                               Style="{StaticResource MaterialDesignHeadlineTextBlock}" />
                     <TextBlock Grid.Row="1" Margin="10" Name="AmountOfBloodDonatedTextBlock" Text=""
                                HorizontalAlignment="Center" VerticalAlignment="Center" 
-                               Style="{DynamicResource MaterialDesignDisplay1TextBlock}" />
+                               Style="{StaticResource MaterialDesignDisplay1TextBlock}" />
                     <TextBlock Grid.Row="2" Margin="10" Text="mililiters of blood" 
                                HorizontalAlignment="Center" VerticalAlignment="Center"
-                               Style="{DynamicResource MaterialDesignHeadlineTextBlock}" />
+                               Style="{StaticResource MaterialDesignHeadlineTextBlock}" />
                 </Grid>
             </materialDesign:Card>
         </Grid>
@@ -55,7 +62,7 @@
                     <RowDefinition MinHeight="80" Height="70"></RowDefinition>
                     <RowDefinition Height="*"></RowDefinition>
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" Style="{DynamicResource MaterialDesignDisplay2TextBlock}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10" Text="Honorary donors:"  />
+                <TextBlock Grid.Row="0" Style="{StaticResource MaterialDesignDisplay2TextBlock}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10" Text="Honorary donors:"  />
                 <DataGrid Grid.Row="1" Name="Grid" IsReadOnly="True" Margin="0" Width="Auto"
                           ItemsSource="{Binding HonoraryDonors}" DataContext="{Binding RelativeSource={RelativeSource AncestorType=Page}}" />
             </Grid>

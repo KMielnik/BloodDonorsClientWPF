@@ -31,7 +31,7 @@ namespace BloodDonorsClientWPF.DonorPages
             donorClient = clientFactory.GetDonorClient();
 
             Loaded += LoginPage_Loaded;
-            LoginSnackbar.MessageQueue = new SnackbarMessageQueue(TimeSpan.FromSeconds(3));
+            LoginSnackbar.MessageQueue = new SnackbarMessageQueue(TimeSpan.FromMilliseconds(1200));
         }
 
         private async void LoginPage_Loaded(object sender, RoutedEventArgs e)
@@ -76,6 +76,20 @@ namespace BloodDonorsClientWPF.DonorPages
             {
                 DonorPeselTextBlock.Text = "NONE";
             }
+        }
+
+        private async void LogoutButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (!donorClient.IsLoggedIn)
+            {
+                LoginSnackbar.MessageQueue.Enqueue("You are not logged in");
+                LoginSnackbar.MessageQueue.Enqueue("Please login before you logoff");
+                return;
+            }
+
+            donorClient.Logout();
+            LoginSnackbar.MessageQueue.Enqueue("Logged off successfully");
+            await SetLoggedDonorsPeselInHeader();
         }
     }
 }

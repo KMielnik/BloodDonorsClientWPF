@@ -96,15 +96,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DonorPages\DonorDonationsPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="DonorPages\DonorLoginPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="DonorPages\DonorLogoutPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -123,14 +115,8 @@
     <Compile Include="DonorPages\DonorAccountPage.xaml.cs">
       <DependentUpon>DonorAccountPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DonorPages\DonorDonationsPage.xaml.cs">
-      <DependentUpon>DonorDonationsPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="DonorPages\DonorLoginPage.xaml.cs">
       <DependentUpon>DonorLoginPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DonorPages\DonorLogoutPage.xaml.cs">
-      <DependentUpon>DonorLogoutPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -159,10 +145,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PersonnelPages\PersonnelLogoutPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="PersonnelPages\RegisterNewDonorPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -183,9 +165,6 @@
     </Compile>
     <Compile Include="PersonnelPages\PersonnelLoginPage.xaml.cs">
       <DependentUpon>PersonnelLoginPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="PersonnelPages\PersonnelLogoutPage.xaml.cs">
-      <DependentUpon>PersonnelLogoutPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="PersonnelPages\RegisterNewDonorPage.xaml.cs">
       <DependentUpon>RegisterNewDonorPage.xaml</DependentUpon>
