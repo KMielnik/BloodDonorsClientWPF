@@ -66,24 +66,28 @@
                         <StackPanel>
                             <Button Style="{StaticResource MaterialDesignFlatAccentButton}" 
                                     Click="ShowDonorLoginPage" Content="Login"/>
-                            <Button Style="{StaticResource MaterialDesignFlatAccentButton}" 
-                                    Click="ShowDonorAccountPage" Content="Account"/>
+                            <StackPanel Name="DonorAuthorizedButtonsStackPanel" Visibility="Collapsed">
+                                <Button Style="{StaticResource MaterialDesignFlatAccentButton}" 
+                                        Click="ShowDonorAccountPage" Content="Account"/>
+                            </StackPanel>
                         </StackPanel>
                     </Expander>
                     <Expander Header="Personnel">
                         <StackPanel>
                             <Button Style="{StaticResource MaterialDesignFlatAccentButton}"
                                     Click="ShowPersonnelLoginPage" Content="Login"/>
-                            <Button Style="{StaticResource MaterialDesignFlatAccentButton}"
+                            <StackPanel Name="PersonnelAuthorizedButtonsStackPanel" Visibility="Collapsed">
+                                <Button Style="{StaticResource MaterialDesignFlatAccentButton}"
                                     Click="ShowPersonnelAccountPage" Content="Account"/>
-                            <Button Style="{StaticResource MaterialDesignFlatAccentButton}"
+                                <Button Style="{StaticResource MaterialDesignFlatAccentButton}"
                                     Click="ShowRegisterNewDonorPage" Content="Register new donor"/>
-                            <Button Style="{StaticResource MaterialDesignFlatAccentButton}"
+                                <Button Style="{StaticResource MaterialDesignFlatAccentButton}"
                                     Click="ShowAddNewDonationPage" Content="Add new donation"/>
-                            <Button Style="{StaticResource MaterialDesignFlatAccentButton}"
+                                <Button Style="{StaticResource MaterialDesignFlatAccentButton}"
                                     Click="ShowPersonnelGetDonorAccountPage" Content="Get donors account"/>
-                            <Button Style="{StaticResource MaterialDesignFlatAccentButton}"
+                                <Button Style="{StaticResource MaterialDesignFlatAccentButton}"
                                     Click="ShowPersonnelDonationsPage" Content="Donations"/>
+                            </StackPanel>
                         </StackPanel>
                     </Expander>
                 </StackPanel>
@@ -137,6 +141,18 @@
             </materialDesign:DialogHost.DialogContent>
         </materialDesign:DialogHost>
 
+        <materialDesign:DialogHost Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                                   Name="DialogAutomaticLogOff" CloseOnClickAway="True">
+            <materialDesign:DialogHost.DialogContent>
+                <StackPanel Margin="16">
+                    <TextBlock>You have been logged off</TextBlock>
+                    <Button Style="{StaticResource MaterialDesignFlatButton}"
+                            Margin="0 8 0 0" Content="OK"  HorizontalAlignment="Right"
+                            Command="materialDesign:DialogHost.CloseDialogCommand"/>
+                </StackPanel>
+            </materialDesign:DialogHost.DialogContent>
+        </materialDesign:DialogHost>
+        
         <materialDesign:DialogHost DialogOpened="IsServerOnlineDialog_OnDialogOpening"
             Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                                    Name="DialogHostIsServerOnline" CloseOnClickAway="True">

@@ -34,6 +34,43 @@ namespace BloodDonorsClientWPF
             MainFrame.Content = new MainPage(clientFactory);
 
             miscellaneousClient = clientFactory.GetMiscellaneousClient();
+
+            var personnelClient = clientFactory.GetPersonnelClient();
+            var donorClient = clientFactory.GetDonorClient();
+
+            personnelClient.OnLogout += WhenPersonnelLoggedOff;
+            donorClient.OnLogout += WhenDonorLoggedOff;
+
+            personnelClient.OnLogin += WhenPersonnelLoggedIn;
+            donorClient.OnLogin += WhenDonorLoggedIn;
+        }
+
+        private void WhenDonorLoggedIn(object sender, EventArgs e)
+        {
+            DonorAuthorizedButtonsStackPanel.Visibility = Visibility.Visible;
+        }
+
+        private void WhenPersonnelLoggedIn(object sender, EventArgs e)
+        {
+            PersonnelAuthorizedButtonsStackPanel.Visibility = Visibility.Visible;
+        }
+
+        private void WhenDonorLoggedOff(object sender, EventArgs e)
+        {
+            DonorAuthorizedButtonsStackPanel.Visibility = Visibility.Collapsed;
+            AfterLogOff();
+        }
+
+        private void WhenPersonnelLoggedOff(object sender, EventArgs e)
+        {
+            PersonnelAuthorizedButtonsStackPanel.Visibility = Visibility.Collapsed;
+            AfterLogOff();
+        }
+
+        private void AfterLogOff()
+        {
+            MainFrame.Content = new MainPage(clientFactory);
+            DialogAutomaticLogOff.IsOpen = true;
         }
 
         private void ShowServersAvailability(object sender, RoutedEventArgs e)
