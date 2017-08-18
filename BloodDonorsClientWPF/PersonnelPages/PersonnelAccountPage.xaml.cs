@@ -27,6 +27,26 @@ namespace BloodDonorsClientWPF.PersonnelPages
         {
             InitializeComponent();
             personnelClient = clientFactory.GetPersonnelClient();
+
+            Loaded += PersonnelAccountPage_Loaded;
+        }
+
+        private async void PersonnelAccountPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            await SetDonorNamerInHeader();
+            await SetAccountData();
+        }
+
+        private async Task SetDonorNamerInHeader()
+        {
+            var personnelName = await personnelClient.GetNameAsync();
+            PersonnelNameTextBlockHeader.Text = personnelName;
+        }
+
+        private async Task SetAccountData()
+        {
+            var donor = await personnelClient.GetAccountAsync();
+            PeselTextBlock.Text = donor.Pesel;
         }
     }
 }

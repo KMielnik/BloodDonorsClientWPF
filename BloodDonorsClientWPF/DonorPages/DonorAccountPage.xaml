@@ -25,7 +25,7 @@
     
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -47,57 +47,61 @@
                 <materialDesign:Card Width="180" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="10">
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="25"></RowDefinition>
-                            <RowDefinition Height="30"></RowDefinition>
+                            <RowDefinition Height="35"></RowDefinition>
+                            <RowDefinition Height="40"></RowDefinition>
                         </Grid.RowDefinitions>
-                        <materialDesign:ColorZone Grid.Row="0" Mode="Accent" 
+                        <materialDesign:ColorZone Grid.Row="0" Mode="Accent"
                                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                            <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Text="Pesel:" />
+                            <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Text="Pesel:"
+                                       VerticalAlignment="Center" Margin="4 0"/>
                         </materialDesign:ColorZone>
                         <TextBlock Grid.Row="1" Style="{StaticResource MaterialDesignTitleTextBlock}" 
-                                   Name="PeselTextBlock" VerticalAlignment="Bottom" HorizontalAlignment="Right" />
+                                   Name="PeselTextBlock" VerticalAlignment="Center" HorizontalAlignment="Right" />
                     </Grid>
                 </materialDesign:Card>
                 <materialDesign:Card Width="180" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="10">
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="25"></RowDefinition>
-                            <RowDefinition Height="30"></RowDefinition>
+                            <RowDefinition Height="35"></RowDefinition>
+                            <RowDefinition Height="40"></RowDefinition>
                         </Grid.RowDefinitions>
                         <materialDesign:ColorZone Grid.Row="0" Mode="Accent" 
                                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                            <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Text="Phone:" />
+                            <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Text="Phone:"  
+                                       VerticalAlignment="Center"  Margin="4 0"/>
                         </materialDesign:ColorZone>
                         <TextBlock Grid.Row="1" Style="{StaticResource MaterialDesignTitleTextBlock}" 
-                                   Name="PhoneTextBlock" VerticalAlignment="Bottom" HorizontalAlignment="Right" />
+                                   Name="PhoneTextBlock" VerticalAlignment="Center" HorizontalAlignment="Right" />
                     </Grid>
                 </materialDesign:Card>
                 <materialDesign:Card Width="180" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="10">
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="25"></RowDefinition>
-                            <RowDefinition Height="30"></RowDefinition>
+                            <RowDefinition Height="35"></RowDefinition>
+                            <RowDefinition Height="40"></RowDefinition>
                         </Grid.RowDefinitions>
                         <materialDesign:ColorZone Grid.Row="0" Mode="Accent" 
                                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                            <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Text="Mail:" />
+                            <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Text="Mail:"
+                                       VerticalAlignment="Center"  Margin="4 0"/>
                         </materialDesign:ColorZone>
                         <TextBlock Grid.Row="1" Style="{StaticResource MaterialDesignTitleTextBlock}" 
-                                   Name="MailTextBlock" VerticalAlignment="Bottom" HorizontalAlignment="Right" />
+                                   Name="MailTextBlock" VerticalAlignment="Center" HorizontalAlignment="Right" />
                     </Grid>
                 </materialDesign:Card>
                 <materialDesign:Card Width="180" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="10">
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="25"></RowDefinition>
-                            <RowDefinition Height="30"></RowDefinition>
+                            <RowDefinition Height="35"></RowDefinition>
+                            <RowDefinition Height="40"></RowDefinition>
                         </Grid.RowDefinitions>
                         <materialDesign:ColorZone Grid.Row="0" Mode="Accent" 
                                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                            <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Text="Blood Type:" />
+                            <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Text="Blood Type:"
+                                       VerticalAlignment="Center" Margin="4 0"/>
                         </materialDesign:ColorZone>
                         <TextBlock Grid.Row="1" Style="{StaticResource MaterialDesignTitleTextBlock}" 
-                                   Name="BloodTypeTextBlock" VerticalAlignment="Bottom" HorizontalAlignment="Right" />
+                                   Name="BloodTypeTextBlock" VerticalAlignment="Center" HorizontalAlignment="Right" />
                     </Grid>
                 </materialDesign:Card>
             </WrapPanel>
@@ -151,7 +155,5 @@
                 </Grid>
             </materialDesign:Card>
         </Grid>
-        
-
     </Grid>
 </Page>

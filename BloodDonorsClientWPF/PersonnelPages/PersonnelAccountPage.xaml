@@ -15,8 +15,46 @@
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="1000"
       Title="PersonnelAccountPage">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBlock.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <materialDesign:Card Padding="8" Margin="5"
+                             HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Style="{StaticResource MaterialDesignDisplay1TextBlock}" Text="Welcome, "/>
+                <TextBlock Style="{StaticResource MaterialDesignDisplay1TextBlock}" Name="PersonnelNameTextBlockHeader"/>
+            </StackPanel>
+        </materialDesign:Card>
+
+        <materialDesign:Card Grid.Column="0" Grid.Row="1" Margin="20"
+                             HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <WrapPanel>
+                <materialDesign:Card Width="180" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="10">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35"></RowDefinition>
+                            <RowDefinition Height="40"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <materialDesign:ColorZone Grid.Row="0" Mode="Accent"
+                                                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Text="Pesel:"
+                                       VerticalAlignment="Center" Margin="4 0"/>
+                        </materialDesign:ColorZone>
+                        <TextBlock Grid.Row="1" Style="{StaticResource MaterialDesignTitleTextBlock}" 
+                                   Name="PeselTextBlock" VerticalAlignment="Center" HorizontalAlignment="Right" />
+                    </Grid>
+                </materialDesign:Card>
+            </WrapPanel>
+        </materialDesign:Card>
     </Grid>
 </Page>

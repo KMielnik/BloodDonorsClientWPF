@@ -15,8 +15,51 @@
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="1000"
       Title="PersonnelLoginPage">
-
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBlock.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
     <Grid>
-        
+        <!-- Header -->
+        <materialDesign:Card HorizontalAlignment="Center" VerticalAlignment="Top" Padding="30" Margin="0 40">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock VerticalAlignment="Center" Style="{StaticResource MaterialDesignDisplay1TextBlock}"
+                           Text="Currently logged personnel: "/>
+                <TextBlock VerticalAlignment="Center" Style="{StaticResource MaterialDesignDisplay2TextBlock}"
+                           Name="PersonnelPeselTextBlock"/>
+            </StackPanel>
+        </materialDesign:Card>
+        <!-- /Header -->
+
+        <!-- LogoutControl -->
+        <materialDesign:Card HorizontalAlignment="Left" VerticalAlignment="Bottom" 
+                             Margin="20" Padding="20" 
+                             materialDesign:ShadowAssist.ShadowDepth="Depth3">
+            <Button Content="Logout" Click="LogoutButtonClick"/>
+        </materialDesign:Card>
+        <!-- /LogoutControl -->
+
+        <!-- LoginControl -->
+        <materialDesign:Card HorizontalAlignment="Right" VerticalAlignment="Bottom" 
+                             Margin="20" Padding="20" KeyDown="LoginCard_OnKeyDown"
+                             materialDesign:ShadowAssist.ShadowDepth="Depth4">
+            <StackPanel Orientation="Vertical" MinWidth="300" MinHeight="100">
+                <TextBox Style="{DynamicResource MaterialDesignFloatingHintTextBox}" 
+                         materialDesign:HintAssist.Hint="Pesel"  Name="PeselTextBox"  
+                         Margin="0 10" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
+                <PasswordBox Style="{DynamicResource MaterialDesignFloatingHintPasswordBox}"
+                             materialDesign:HintAssist.Hint="Password" Name="PasswordTextBox" 
+                             Margin="0 10" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
+                <Button Content="Login" Click="LoginButtonClick" 
+                        Margin="0 10"/>
+            </StackPanel>
+        </materialDesign:Card>
+        <!-- /LoginControl -->
+
+        <materialDesign:Snackbar IsActive="False"
+                                 Name="LoginSnackbar"/>
     </Grid>
 </Page>
