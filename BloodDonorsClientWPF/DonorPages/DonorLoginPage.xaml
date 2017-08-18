@@ -44,7 +44,7 @@
         
         <!-- LoginControl -->
         <materialDesign:Card HorizontalAlignment="Right" VerticalAlignment="Bottom" 
-                             Margin="20" Padding="20" 
+                             Margin="20" Padding="20" KeyDown="LoginCard_OnKeyDown"
                              materialDesign:ShadowAssist.ShadowDepth="Depth4">
             <StackPanel Orientation="Vertical" MinWidth="300" MinHeight="100">
                 <TextBox Style="{DynamicResource MaterialDesignFloatingHintTextBox}" 

@@ -48,6 +48,7 @@ namespace BloodDonorsClientWPF.DonorPages
             }
 
             var password = PasswordTextBox.Password;
+            
 
             try
             {
@@ -90,6 +91,16 @@ namespace BloodDonorsClientWPF.DonorPages
             donorClient.Logout();
             LoginSnackbar.MessageQueue.Enqueue("Logged off successfully");
             await SetLoggedDonorsPeselInHeader();
+        }
+
+        private void LoginCard_OnKeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.Key)
+            {
+                case Key.Enter:
+                    LoginButtonClick(this, e);
+                    break;
+            }
         }
     }
 }
