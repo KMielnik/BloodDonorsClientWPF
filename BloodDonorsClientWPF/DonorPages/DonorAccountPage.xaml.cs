@@ -49,8 +49,23 @@ namespace BloodDonorsClientWPF.DonorPages
         private async Task SetHowManyDaysUntillCanDonateAgain()
         {
             var whenAbleToDonateAgain = await donorClient.WhenAbleToDonateAgainAsync();
-            var howMuchTimeUntil = whenAbleToDonateAgain - DateTime.Now;
-            HowManyDaysToDonateAgain.Text = howMuchTimeUntil.Days.ToString() + " days";
+
+            if (whenAbleToDonateAgain != DateTime.MinValue)
+            {
+                var howMuchTimeUntil = TimeSpan.Zero;
+                HowManyDaysToDonateAgain.Text = howMuchTimeUntil.Days.ToString() + " days";
+
+                HowManyDaysToDonateAgainCalendar.DisplayDate = whenAbleToDonateAgain;
+                HowManyDaysToDonateAgainCalendar.SelectedDate = whenAbleToDonateAgain;
+            }
+            else
+            {
+                HowManyDaysToDonateAgain.Text = "0 days";
+                HowManyDaysToDonateAgainCalendar.DisplayDate = DateTime.Now;
+                HowManyDaysToDonateAgainCalendar.SelectedDate = DateTime.Now;
+            }
+
+
             HowManyDaysToDonateAgainCalendar.DisplayDate = whenAbleToDonateAgain;
             HowManyDaysToDonateAgainCalendar.SelectedDate = whenAbleToDonateAgain;
         }
