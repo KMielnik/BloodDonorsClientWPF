@@ -151,6 +151,8 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ValidationRules\ExactLengthValidationRule.cs" />
+    <Compile Include="ValidationRules\NotEmptyValidationRule.cs" />
     <Compile Include="PersonnelPages\PersonnelAccountPage.xaml.cs">
       <DependentUpon>PersonnelAccountPage.xaml</DependentUpon>
     </Compile>
