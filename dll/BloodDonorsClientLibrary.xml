@@ -97,9 +97,9 @@
             Returns volume of all blood donated ever.
             </summary>
         </member>
-        <member name="M:BloodDonorsClientLibrary.Services.MiscellaneousClient.GetBloodTypes">
+        <member name="M:BloodDonorsClientLibrary.Services.MiscellaneousClient.GetBloodTypesAsync">
             <summary>
-            Returns list of all possible blood types
+            Returns all possible blood types.
             </summary>
         </member>
         <member name="M:BloodDonorsClientLibrary.Services.MiscellaneousClient.IsServerOnline">
