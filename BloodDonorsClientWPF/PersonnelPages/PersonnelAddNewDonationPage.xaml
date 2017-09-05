@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:BloodDonorsClientWPF.PersonnelPages"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:validationRules="clr-namespace:BloodDonorsClientWPF.ValidationRules"
       TextElement.Foreground="{StaticResource MaterialDesignBody}"
       TextElement.FontWeight="Regular"
       TextElement.FontSize="13"
@@ -15,8 +16,65 @@
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="1000"
       Title="PersonnelAddNewDonationPage">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBlock.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <materialDesign:Card Padding="8" Margin="5"
+                             HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Style="{StaticResource MaterialDesignDisplay1TextBlock}" Text="Add new donation"/>
+        </materialDesign:Card>
+
+        <materialDesign:Card Grid.Row="1" Margin="10" Padding="10"
+                             HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Grid>
+                <WrapPanel >
+                    <WrapPanel>
+                        <TextBox Name="PeselTextBox" materialDesign:HintAssist.Hint="Donor pesel"
+                                 Margin="10" Width="150" DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                                 Style="{DynamicResource MaterialDesignFloatingHintTextBox}" materialDesign:ValidationAssist.OnlyShowOnFocus="True">
+                            <TextBox.Text>
+                                <Binding Path="Text" UpdateSourceTrigger="LostFocus">
+                                    <Binding.ValidationRules>
+                                        <validationRules:NotEmptyValidationRule ValidatesOnTargetUpdated="True" />
+                                        <validationRules:ExactLengthValidationRule ValidatesOnTargetUpdated="True" Length="11"/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                        <TextBox Name="VolumeTextBox" materialDesign:HintAssist.Hint="Volume"
+                                 Margin="10" Width="150" DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                                 Style="{DynamicResource MaterialDesignFloatingHintTextBox}" materialDesign:ValidationAssist.OnlyShowOnFocus="True">
+                            <TextBox.Text>
+                                <Binding Path="Text" UpdateSourceTrigger="LostFocus">
+                                    <Binding.ValidationRules>
+                                        <validationRules:NumberValidationRule ValidatesOnTargetUpdated="True" />
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                    </WrapPanel>
+                    <DatePicker Name="DonationDatePicker" materialDesign:HintAssist.Hint="Donation date"
+                                Width="150" Margin="10" Height="26" VerticalAlignment="Bottom"/>
+                    <materialDesign:TimePicker Name="DonationTimePicker" materialDesign:HintAssist.Hint="Donation time"
+                                               Width="150" Margin="10" Height="26" VerticalAlignment="Bottom"/>
+                </WrapPanel>
+                <Button Content="Add" Height="35" Width="100" Margin="15"
+                        VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="AddDonationButton_Click"/>
+            </Grid>
+        </materialDesign:Card>
+
+
+        <materialDesign:Snackbar Grid.Row="0" Grid.RowSpan="2" IsActive="False"
+                                 Name="RegisterDonorSnackbar"/>
     </Grid>
 </Page>
