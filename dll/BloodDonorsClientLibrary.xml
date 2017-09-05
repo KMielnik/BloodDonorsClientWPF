@@ -157,7 +157,7 @@
                 Thrown when user is not logged in.
             </exception>
         </member>
-        <member name="M:BloodDonorsClientLibrary.Services.PersonnelClient.AddDonationAsync(System.DateTime,System.Int32,BloodDonorsClientLibrary.Models.BloodType,System.String)">
+        <member name="M:BloodDonorsClientLibrary.Services.PersonnelClient.AddDonationAsync(System.DateTime,System.Int32,System.String)">
             <summary>
             Add new blood donation
             </summary>
