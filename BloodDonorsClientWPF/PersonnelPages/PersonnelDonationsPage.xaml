@@ -14,7 +14,7 @@
       FontFamily="{DynamicResource MaterialDesignFont}"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="1000"
-      Title="PersonnelDonationsPage">
+      Title="PersonnelFilteredDonationsPage">
     <Page.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -24,6 +24,30 @@
     </Page.Resources>
     
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <materialDesign:Card Grid.Row="0" Margin="5"
+                             HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Grid KeyUp="FilterGrid_KeyUp">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="70"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <ComboBox Name="BloodTypeComboBox" Grid.Column="0" Margin="10" SelectionChanged="BloodTypeComboBox_OnSelectionChanged"
+                         materialDesign:HintAssist.Hint="Blood type" VerticalAlignment="Center"/>
+                <TextBox Name="DonorPeselTextBox" Grid.Column="1" Margin="10"
+                         materialDesign:HintAssist.Hint="Donors pesel" VerticalAlignment="Center"/>
+                <TextBox Name="BloodTakerTextBox" Grid.Column="2" Margin="10"
+                         materialDesign:HintAssist.Hint="Blood takers pesel" VerticalAlignment="Center"/>
+                <Button Grid.Column="3" Content="Clear" Height="Auto" Click="Button_Click"/>
+            </Grid>
+        </materialDesign:Card>
+        <DataGrid Grid.Row="1" Name="Grid" IsReadOnly="True" Margin="0" Width="Auto"
+                  ItemsSource="{Binding FilteredDonations}" DataContext="{Binding RelativeSource={RelativeSource AncestorType=Page}}"/>
     </Grid>
 </Page>
